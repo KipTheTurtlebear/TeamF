@@ -95,7 +95,7 @@ void Output::InputChar(char * c)
       if (inputLen > 0) 
       {        
         Print(" > " + inputCh);
-        referenceToProgram.parser.Parse(inputCh);
+        referenceToProgram->parser.Parse(inputCh);
         inputCh = "";
 
         inputLen = 0;

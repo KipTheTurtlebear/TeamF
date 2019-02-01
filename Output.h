@@ -1,3 +1,26 @@
+/* CS300
+ * FILENAME: Output.h
+ * Class: Output
+ * Contributor: Brad Hopper
+ *
+ * File Description:
+ *  - This file contains the code for output to the screen, for both the input text and 
+ *      any "console messages" needed for the game, as well as interpreting the world data 
+ *      to a visual, on-screen map.
+ *  - Messages are printed to the console with Print(string)
+ *  - Input is sent one char at a time to InputChar(char*)
+ *      - Input will display the current input string, check for backspaces (so '\b' is a valid
+ *          input), and check for enter (so '\n' is also valid)
+ *      - If it detects '\n', it will send the input string to the parser, then display the
+ *          command in the console.
+ *
+ *    - TODO:
+ *      - Map interpretation to link to World class
+ */
+ 
+
+
+
 #include <iostream>
 #include <ncurses.h>
 #include <list>
