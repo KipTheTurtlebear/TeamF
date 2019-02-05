@@ -9,4 +9,4 @@ private:
     Program* referenceToProgram;
 public:
     Tile(Program* program);
-}
+};

@@ -17,4 +17,4 @@ public:
     Parser(Program* program);
     // Parses the given string and calls the Run() function on the correct command class
     void Parse(string stringToParse);
-}
+};

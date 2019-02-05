@@ -14,4 +14,4 @@ public:
     Command(Program* program);
 
     virtual void Run(vector<string> arguments) = 0;
-}
+};

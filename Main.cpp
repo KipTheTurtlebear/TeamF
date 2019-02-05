@@ -1,6 +1,6 @@
 #include "Program.h"
 
-void main()
+int main()
 {
     Program* program = new Program();
 }
