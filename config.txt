@@ -1,0 +1,14 @@
+Obstacles:
+    Monster
+    Thorn Bushes
+Items:
+    Sword
+    Flamethrower
+Item Costs:
+    500
+    250
+Starting Stats:
+    Energy: 
+        100
+    Gold: 
+        500

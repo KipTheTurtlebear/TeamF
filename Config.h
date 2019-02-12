@@ -20,6 +20,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 class Config {
@@ -31,20 +34,21 @@ class Config {
 		void run();  // Used by the program class. Runs the Config interface for the user.
 
 	private:
-		fstream * config_file;  // Loaded or newly created file containing the config data.
+		fstream configFile;  // Loaded or newly created file containing the config data.
 
-		void prompt_user(string message);
+		void promptUser(string message);
 		
 		//TODO: figure out all sections of the config //
-		void handle_obstacle_mods();
-		void handle_item_mods();
+		void handleObstacleMods();
+		void handleItemMods();
+		void handleStatsMods();
 		//TODO//
 
-		bool save_config_file();
-		bool config_exists();
+		bool saveConfigFile();
+		bool replaceConfigLine(string toReplace, string newLine);
 
-		int write_to_file(int file_line, string text);
+		int writeToFile(int file_line, string text);
+		int findItemID(string itemName);
 
-		fstream * create_new_file();
-		fstream * load_config_file();
+		fstream loadConfigFile();
 };
