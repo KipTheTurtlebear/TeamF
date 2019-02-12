@@ -1,12 +1,36 @@
-#include<iostream>
-#include "Program.h"
-using namespace std;
+#include <string>
+
+enum class ItemType
+{
+	//Boat allows passing water
+	//Tool allows breaking obstacles
+	//Bino allows vision of 2 squares instead of 1
+	//power allows energy increase
+	boat,tool,bino,power
+};
 
 class Item
 {
 private:
-    // A reference to the base program; Through this we can access any class instances we need, like Output
-    Program* referenceToProgram;
+	std::string name;		//objects in game description
+	ItemType type;			//object type as enum
+	int energyQty;			//Works both ways, if tool, decreses energy consumption by this amount, if power, increases heros energy by this amount.
+	int cost;				//how much money is needed to purchase.
+
 public:
-    Item(Program* program);
+	//Constructors
+	Item();
+
+	//Getters
+	std::string getName(void);
+	ItemType getType(void);
+	int getEnergyQty(void);
+	int getCost(void);
+
+	//Setters
+	void setName(std::string value);
+	void setType(ItemType value);
+	void setEnergyQty(int value);
+	void setCost(int value);
+
 };
