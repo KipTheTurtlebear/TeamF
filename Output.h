@@ -53,6 +53,9 @@ private:
     int txtX=0, txtY=0;
     int inputLen=0;
     WINDOW * txt;   // Text output, when messages are printed they go to this window
+    WINDOW * mapTop;
+    int tX=0, tY=0, rX=0, rY=0;
+    WINDOW * mapRight;
     list <char*> messageBuffer;
     string inputCh;   // Current input chars, before user hits enter
 

@@ -20,6 +20,13 @@ void Output::InitCurses()
     getmaxyx(stdscr,y,x);
     txt = newwin(MAX_MESSAGES+3, MIN_MESSAGE_LENGTH+2, y - MAX_MESSAGES - 4, 2);
     getmaxyx(txt,txtY,txtX);
+
+    mapTop = newwin(y-(txtY+2), x-2, 1, 1);
+    getmaxyx(mapTop,tY,tX);
+
+    mapRight = newwin(txtY, x-(txtX+3), y-(txtY+1), txtX+2);
+    getmaxyx(mapRight,rY,rX);
+
     clear();
     wclear(txt);
     if (has_colors()) start_color();
@@ -51,7 +58,7 @@ void Output::PrintBorder(int y, int x)
 void Output::PrintText()
 {
     wclear(txt);
-    attron(COLOR_PAIR(TXTBOX_PAIR));
+    wattron(txt,COLOR_PAIR(TXTBOX_PAIR));
     wborder(txt,'|','|','-','-','/','\\','\\','/');
     if (messageBuffer.size() != 0) 
     {
@@ -71,13 +78,14 @@ void Output::PrintText()
       }
 
     }
-    attroff(COLOR_PAIR(TEXT_PAIR));
+    wattroff(txt,COLOR_PAIR(TEXT_PAIR));
 
-    attron(COLOR_PAIR(INPUT_PAIR));
+    wattron(txt,COLOR_PAIR(INPUT_PAIR));
     wmove(txt,txtY-2,1);
     wprintw(txt,"> ");
-    attroff(COLOR_PAIR(INPUT_PAIR));
+    wattroff(txt,COLOR_PAIR(INPUT_PAIR));
     wrefresh(txt);
+    UpdateMap();
 }
 
 void Output::Cleanup()
@@ -95,7 +103,7 @@ void Output::InputChar(char * c)
       if (inputLen > 0) 
       {        
         Print(" > " + inputCh);
-        referenceToProgram->parser.Parse(inputCh);
+        referenceToProgram->parser->Parse(inputCh);
         inputCh = "";
 
         inputLen = 0;
@@ -132,6 +140,36 @@ void Output::InputChar(char * c)
 
 void Output::UpdateMap()
 {
+    // mapTop is the top half of the screen, above txt box
+    //    it has corresponding ints tX and tY containing the
+    //    size of the window
+    // mapRight is the bottom right ~quarter of the screen
+    //    it has corresponding ints rX and rY similarly
+
+    
+
+      // Starting with the top half of the screen...
+    for (int i=0;i<tX;i++){
+      for(int j=0;j<tY;j++){
+        wmove(mapTop,j,i);
+        wattron(mapTop,COLOR_PAIR(WATER_PAIR));
+        wprintw(mapTop,"~");
+        wattroff(mapTop,COLOR_PAIR(WATER_PAIR));
+        
+      }
+    }
+    for (int i=0;i<rX;i++){
+      for(int j=0;j<rY;j++){
+        wmove(mapRight,j,i);
+        wattron(mapRight,COLOR_PAIR(WATER_PAIR));
+        wprintw(mapRight,"~");
+        wattroff(mapRight,COLOR_PAIR(WATER_PAIR));
+
+      }
+    }
+    wrefresh(mapTop);
+    wrefresh(mapRight);
+
   
 }
 
