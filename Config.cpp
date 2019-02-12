@@ -1,5 +1,4 @@
 #include "Config.h"
-
 Config::Config() 
 {
 	this->configFile.open("config.txt");

@@ -22,6 +22,7 @@
 #include <string.h>
 #include <fstream>
 #include <iostream>
+#include "Program.h"
 
 using namespace std;
 
