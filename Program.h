@@ -21,4 +21,4 @@ public:
         world = new World(this);
         input = new Input(this);
     }
-}
+};

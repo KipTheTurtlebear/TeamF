@@ -9,4 +9,4 @@ private:
     Program* referenceToProgram;
 public:
     Input(Program* program);
-}
+};
