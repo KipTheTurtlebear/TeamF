@@ -13,4 +13,4 @@ public:
     map<string, Command> listOfCommands;
 
     CommandsList(Program* program);
-}
+};

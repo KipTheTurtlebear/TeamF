@@ -18,4 +18,4 @@ public:
     {
         cout << stringToPrint.c_str() << endl;
     }
-}
+};
