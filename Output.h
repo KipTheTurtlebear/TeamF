@@ -19,12 +19,13 @@
  */
  
 
-
+#ifndef OUTPUT
+#define OUTPUT
 
 #include <iostream>
 #include <ncurses.h>
 #include <list>
-#include "ClassDefinitions.h"
+#include "Program.h"
 using namespace std;
 
 #define GRASS           ' '
@@ -76,3 +77,4 @@ public:
 };                                      // Example: User presses the 'a' key, so call InputChar('a');
                                         // Code in here will send a string to the parser and  
                                         // print to the screen when enter is pressed
+#endif
