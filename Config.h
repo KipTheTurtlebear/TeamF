@@ -49,6 +49,8 @@ class Config {
 
 		int writeToFile(int file_line, string text);
 		int findItemID(string itemName);
+    
+        string* findCategoryFromFile(string category);
 
 		fstream loadConfigFile();
 };

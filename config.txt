@@ -1,10 +1,13 @@
 Obstacles:
-    Monster
+    Monster1
     Thorn Bushes
-Obstacle Items:
+Items:
     Sword
     Flamethrower
-Obstacle Item Energy Saved:
+Item Costs:
+    100
+    200
+Energy Saved:
     25
     25
 General Items:
@@ -16,7 +19,7 @@ General Item Costs:
     400
     100
 Starting Stats:
-    Energy: 
+    Energy:
         100
-    Gold: 
+    Gold:
         500
